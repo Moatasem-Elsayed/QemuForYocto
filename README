@@ -1,0 +1,31 @@
+# Qemu Preparation Script
+
+This script prepares the partitions and runs Qemu for the diploma machine.
+
+## Usage
+
+1. Navigate to the directory containing the script:
+    ```bash
+    cd build/tmp/deploy/images/diploma-machine/Qemu/
+    ```
+
+2. Make the script executable:
+    ```bash
+    chmod +x prepare_Qemu.sh
+    ```
+
+3. Run the script:
+    ```bash
+    ./prepare_Qemu.sh
+    ```
+
+## Script Details
+
+- The script creates and formats partitions on a `rootfs.img` file.
+- It mounts the partitions and copies necessary files from a Yocto image.
+- Finally, it runs Qemu with the prepared image.
+
+## Notes
+
+- Ensure you have `qemu-img`, `cfdisk`, `losetup`, `mkfs.fat`, `mkfs.ext4`, and `qemu-system-aarch64` installed.
+- The script requires `sudo` privileges to execute certain commands.
