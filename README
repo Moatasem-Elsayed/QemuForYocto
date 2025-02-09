@@ -5,22 +5,22 @@ This script prepares the partitions and runs Qemu for the diploma machine.
 ## Usage
 
 1. Navigate to the directory containing the script:
-    ```
 
+    ```
     cd build/tmp/deploy/images/diploma-machine/Qemu/
 
     ```
 
 2. Make the script executable:
-    ```
 
+    ```
     chmod +x prepare_Qemu.sh
 
     ```
 
 3. Run the script:
-    ```
 
+    ```
     ./prepare_Qemu.sh
 
     ```
