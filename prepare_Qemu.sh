@@ -58,7 +58,7 @@ sudo qemu-system-aarch64 \
     -cpu cortex-a53 \
     -m 1G \
     -smp 4 \
-    -dtb ./yoctomnt/boot/bcm2710-rpi-3-b.dtb \
+    -dtb ./yoctomnt/boot/bcm2710-rpi-3-b-plus.dtb \
     -kernel ./yoctomnt/boot/kernel8.img \
     -drive file=rootfs.img,format=raw,if=sd \
     -append "console=ttyAMA0,115200 root=/dev/mmcblk0p2 rootwait rw" \
