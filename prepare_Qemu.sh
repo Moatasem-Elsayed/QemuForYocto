@@ -55,7 +55,7 @@ echo -e "\e[32mRunning Qemu...\e[0m"
 ## Run Qemu
 sudo qemu-system-aarch64 \
     -M raspi3b \
-    -cpu cortex-a53 \
+    -cpu cortex-a7 \
     -m 1G \
     -smp 4 \
     -dtb ./yoctomnt/boot/bcm2710-rpi-3-b-plus.dtb \
