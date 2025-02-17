@@ -3,43 +3,13 @@ set -e
 
 echo "Starting the preparation of partitions..."
 
-## Prepare the partitions
-# sudo rm -rf ./mnt/ || true
-# mkdir -p ./mnt/{boot,rootfs}
-# if [ -f rootfs.img ]; then
-#     echo -e "\e[32mrootfs.img already exists\e[0m"
-# else
-#     echo "Creating rootfs.img..."
-#     qemu-img create rootfs.img 4G
-#     echo "Please use cfdisk to create the following partitions:"
-#     echo "1. A primary partition of type FAT32 for boot."
-#     echo "2. A primary partition of type Linux for rootfs."
-#     echo "Press Enter to continue..."
-#     read
-#     sudo cfdisk ./rootfs.img
-# fi
-
-# echo -e "e[32Setting up loop device...\e[0m"
-# loopdevice=$(sudo losetup --show --partscan -f ./rootfs.img)
-# echo "Formatting partitions..."
-# sudo mkfs.fat "${loopdevice}"p1
-# sudo mkfs.ext4 "${loopdevice}"p2
-# echo -e "\e[32mMounting partitions...\e[0m"
-# sudo mount "${loopdevice}"p1 ./mnt/boot
-# sudo mount "${loopdevice}"p2 ./mnt/rootfs
 
 echo -e "\e[32mMounting sdimg partitions...\e[0m"
-## mount wic partitions
-# sudo rm -rf ./raspios/ || true
-# mkdir -p ./raspios/{boot,rootfs}
-# rm -rf ./*[0-9]*.img || true
-# cp ../*[0-9]*.*zip .
-# unzip ./*zip
+
 image=$(ls ./2*[0-9]*.img)
 qemu-img resize "$image" 4G
 raspiosImage=$(sudo losetup --show --partscan -f "$image")
 sudo mount "${raspiosImage}"p1 ./raspios/boot
-# sudo mount "${raspiosImage}"p2 ./raspios/rootfs
 
 echo "Copying files..."
 ## Copy the files
